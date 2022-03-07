@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 15,
   },
   pr_text: {
-    textAlign: "start",
-    marginLeft: 45,
+    textAlign: "center",
     fontWeight: 600,
     letterSpacing: -1,
     marginTop: 25,
@@ -20,9 +19,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "start",
     fontWeight: 600,
     paddingLeft: 15,
+    marginTop: 10,
   },
   address_text: {
-    margin: "10px 5px",
+    padding: "10px 5px",
     wordBreak: "break-word",
   },
 }));
