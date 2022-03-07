@@ -4,10 +4,26 @@ import QRCode from "react-qr-code";
 
 const useStyles = makeStyles((theme) => ({
   image: {
-    width: 160,
-    height: 140,
+    width: 120,
+    height: 100,
     marginTop: 15,
     paddingLeft: 15,
+  },
+  pr_text: {
+    textAlign: "start",
+    marginLeft: 45,
+    fontWeight: 600,
+    letterSpacing: -1,
+    marginTop: 25,
+  },
+  ag_text: {
+    textAlign: "start",
+    fontWeight: 600,
+    paddingLeft: 15,
+  },
+  address_text: {
+    margin: "10px 5px",
+    wordBreak: "break-all",
   },
 }));
 
@@ -17,25 +33,14 @@ const PersonCard = ({ data }) => {
     <>
       <div>
         <img src={data.picture} alt="person_img" className={classes.image} />
-        <div
-          style={{
-            textAlign: "start",
-            marginLeft: 45,
-            fontWeight: 600,
-            letterSpacing: -1,
-          }}
-        >
-          PR_________
-        </div>
-        <div style={{ textAlign: "start", fontWeight: 600, paddingLeft: 15 }}>
-          AG
-        </div>
+        <div className={classes.pr_text}>PR_________</div>
+        <div className={classes.ag_text}>AG</div>
       </div>
       <div style={{ marginTop: 15 }}>
         <span>{data.name}, </span>
         <span>{data.last_name},</span>
         <div>{data.middle_name}</div>
-        <div style={{ margin: "10px 5px" }}>{data.address}</div>
+        <div className={classes.address_text}>{data.address}</div>
         <QRCode value={data.qr_value} size={60} />
       </div>
     </>

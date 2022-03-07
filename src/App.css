@@ -40,7 +40,12 @@
 @media print {
   body {
     margin: 0;
-    padding: 0 !important;
-    min-width: 1400px !important;
+    padding: 0;
+    min-width: 1290px;
+  }
+
+  @page {
+    size: 13.3750072225in 8.756254674375in;
+    margin: 2mm;
   }
 }

@@ -18,7 +18,14 @@ const useStyles = makeStyles((theme) => ({
     height: "207.87px",
     width: "321.26px",
     display: "flex",
-    border: "0.2px solid rgb(235, 227, 227)",
+    border: "0.2px solid black",
+    borderRadius: 0,
+  },
+  grid_padding_bottom: {
+    paddingBottom: 0,
+  },
+  grid_margin_bottom: {
+    marginBottom: 15,
   },
 }));
 
@@ -28,21 +35,33 @@ const Layout = () => {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={0} ref={itemsRef} style={{ marginBottom: 15 }}>
+      <Grid
+        container
+        spacing={0}
+        ref={itemsRef}
+        className={classes.grid_margin_bottom}
+      >
         {data.map((personData, index) => {
           return (
-            <Grid item xs={3} style={{ paddingBottom: 0 }} key={personData.id}>
-              <Paper className={classes.paper}>
-                <PersonCard data={personData} />
-              </Paper>
-            </Grid>
+            <>
+              <Grid
+                item
+                xs={3}
+                key={personData.id}
+                className={classes.grid_padding_bottom}
+              >
+                <Paper className={classes.paper}>
+                  <PersonCard data={personData} />
+                </Paper>
+              </Grid>
+            </>
           );
         })}
       </Grid>
       <ReactToPrint
         trigger={() => <button>Print this out!</button>}
         content={() => itemsRef.current}
-        pageStyle="@page { size: landscape } @media print { body { background: red} }"
+        // pageStyle="@page { size: landscape } @media print { body { background: red} }"
       />
     </div>
   );
