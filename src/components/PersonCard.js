@@ -11,13 +11,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const PersonCard = ({ data, printComponent }) => {
+const PersonCard = ({ data }) => {
   const classes = useStyles();
   return (
     <>
       <div>
         <img src={data.picture} alt="person_img" className={classes.image} />
-        {printComponent}
+        <div
+          style={{
+            textAlign: "start",
+            marginLeft: 45,
+            fontWeight: 600,
+            letterSpacing: -1,
+          }}
+        >
+          PR_________
+        </div>
+        <div style={{ textAlign: "start", fontWeight: 600, paddingLeft: 15 }}>
+          AG
+        </div>
       </div>
       <div style={{ marginTop: 15 }}>
         <span>{data.name}, </span>

@@ -12,49 +12,38 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: 0,
+    margin: 0,
     textAlign: "center",
-    color: theme.palette.text.secondary,
+    color: "black",
     height: "207.87px",
     width: "321.26px",
     display: "flex",
     border: "0.2px solid rgb(235, 227, 227)",
-    borderRadius: 10,
   },
 }));
 
 const Layout = () => {
   const classes = useStyles();
-  const itemsRef = useRef([]);
-
-  React.useEffect(() => {
-    itemsRef.current = itemsRef.current.slice(0, data.length);
-  }, []);
+  const itemsRef = useRef();
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={4}>
+      <Grid container spacing={0} ref={itemsRef} style={{ marginBottom: 15 }}>
         {data.map((personData, index) => {
           return (
-            <Grid item xs={2} style={{ paddingBottom: 0 }} key={personData.id}>
-              <Paper
-                className={classes.paper}
-                ref={(el) => (itemsRef.current[index] = el)}
-              >
-                <PersonCard
-                  data={personData}
-                  printComponent={
-                    <ReactToPrint
-                      trigger={() => <button>Print this out!</button>}
-                      content={() => itemsRef.current[index]}
-                      pageStyle="@page { size: 3.34646in 5.11811in }"
-                    />
-                  }
-                />
+            <Grid item xs={3} style={{ paddingBottom: 0 }} key={personData.id}>
+              <Paper className={classes.paper}>
+                <PersonCard data={personData} />
               </Paper>
             </Grid>
           );
         })}
       </Grid>
+      <ReactToPrint
+        trigger={() => <button>Print this out!</button>}
+        content={() => itemsRef.current}
+        pageStyle="@page { size: landscape } @media print { body { background: red} }"
+      />
     </div>
   );
 };
