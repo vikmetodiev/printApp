@@ -5,7 +5,7 @@ import PersonCard from "./PersonCard";
 import data from "../dummyData";
 import ReactToPrint from "react-to-print";
 import Paper from "@material-ui/core/Paper";
-
+import "./Layout.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,

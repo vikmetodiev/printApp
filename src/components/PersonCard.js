@@ -4,8 +4,8 @@ import QRCode from "react-qr-code";
 
 const useStyles = makeStyles((theme) => ({
   image: {
-    width: 120,
-    height: 100,
+    width: 100,
+    height: 80,
     marginTop: 15,
     paddingLeft: 15,
   },
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   address_text: {
     margin: "10px 5px",
-    wordBreak: "break-all",
+    wordBreak: "break-word",
   },
 }));
 
