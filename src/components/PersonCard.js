@@ -18,12 +18,17 @@ const useStyles = makeStyles((theme) => ({
   ag_text: {
     textAlign: "start",
     fontWeight: 600,
-    paddingLeft: 15,
+    left: 15,
+    bottom: 10,
     marginTop: 10,
+    position: "absolute",
   },
   address_text: {
     padding: "10px 5px",
     wordBreak: "break-word",
+  },
+  relative: {
+    position: "relative",
   },
 }));
 
@@ -31,7 +36,7 @@ const PersonCard = ({ data }) => {
   const classes = useStyles();
   return (
     <>
-      <div>
+      <div className={classes.relative}>
         <img src={data.picture} alt="person_img" className={classes.image} />
         <div className={classes.pr_text}>PR_________</div>
         <div className={classes.ag_text}>AG</div>
